@@ -4,7 +4,8 @@ const {Pokemon,
     grass,
     Bulbasaur,
     Squirtle,
-    Charmander,} = require('./pokemon');
+    Charmander,
+    Pokeball,} = require('./pokemon');
 
 describe("Pokemon",()=>{
 test("returns an instance of a pokemon",()=>{
@@ -32,9 +33,27 @@ expect(Rattata.type).toEqual('normal');
             
             }) 
             
-test("to throw the ball and catch a pokemon",()=>{
-
+    const Charmander=new fire('Charmander');
+test("to check if Charmander can defeat pokemon grassfdsf",()=>{
+    const Charmander=new fire('Charmander');
 expect(Charmander.type).toEqual('fire');
-                    
+//const Rattata = new Pokemon('Rattata','normal');
+expect(Charmander.isEffectiveAgainst('grass')).toEqual(true);                   
+}) 
+
+test("to capture pokemon",()=>{
+    const battle=new Pokeball();
+    //const cc
+expect(battle.throw('Charmander')).toEqual('Charmander'); 
+expect(battle.throw('grass')).toEqual('not allowed');    
+//expect(battle.throw().toEqual('');                  
+}) 
+
+test("To release a pokemon",()=>{
+    const battle=new Pokeball();
+    //const cc
+expect(battle.throw()).toEqual(true); 
+//expect(battle.throw('grass')).toEqual('not allowed');    
+//expect(battle.throw().toEqual('');                  
 }) 
 });

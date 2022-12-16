@@ -10,14 +10,12 @@ const effectivness={
         water:['grass'],
         }
 class Pokemon{
-
     constructor(name,type='normal',hitPoints,attackDamage,move='tackle'){
         this.name=name;
         this.type=type;
         this.hitPoints=100;
         this.attackDamage=0;
         this.move=move;
-        console.log("QQQQQQQQQQQQQQQQQQQQQQQQQQQ");
     }
    isEffectiveAgainst(strength)
     {
@@ -53,10 +51,7 @@ class Pokemon{
             return true
         }
         }
-   
-
 }
-
 
 class fire extends Pokemon{
     constructor(name,hitPoints,attackDamage,move='tackle'){
@@ -76,7 +71,6 @@ class fire extends Pokemon{
                     this.type = 'water';
                   }
             }
-
  
 class Charmander extends fire{
     constructor(name,type,hitPoints,attackDamage,move)
@@ -87,7 +81,6 @@ class Charmander extends fire{
         this.attackDamage=0;
         this.move='ember';
     }
-
 }
 class Squirtle extends water{
     constructor(name,hitPoints,attackDamage,move)
@@ -98,7 +91,6 @@ class Squirtle extends water{
         this.attackDamage=0;
         this.move='water gun';
     }
-
 }
 class Bulbasaur extends grass{
     constructor(name,hitPoints,attackDamage,move='vine whi')
@@ -109,23 +101,33 @@ class Bulbasaur extends grass{
         this.attackDamage=0;
         this.move='GrassPokemon';
     }
-
 }
 class Pokeball{
 constructor(container)
 {
   this.container= [];
 }
-throw(pokemon)
-{ if(pokemon===undefined)
+throw(pokemon='')
+{
+    if(pokemon=='')
     {
-
+    // battle
+      return true
     }
- else(!this.container.length)
+ else
   {
-    this.container.push(insideball);
-    console.log(`you caught a Pokemon called ${pokemon}`);
+    if(!this.container.length)
+    {
+        this.container.push(pokemon);
+        console.log(`you caught a Pokemon called ${pokemon}`);
+        return pokemon;
+    }
+    else{
+        return 'not allowed'
+    }
+    
   }
+ // return pokemon
 }//throw
 
 isEmpty()
@@ -142,4 +144,5 @@ module.exports = {Pokemon,
     Bulbasaur,
     Squirtle,
     Charmander,
+    Pokeball,
 } ;
